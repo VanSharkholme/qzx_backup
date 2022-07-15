@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>志愿时长查询</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "style.css" %}">
+</head>
+<body>
+{#  导航栏部分  #}
+<ul class="navbar">
+    <li class="navbar"><a href="{% url 'password_reset' %}">修改密码</a></li>
+    <li class="navbar"><a href="{% url 'zhiyuan:time' %}">查看时长</a></li>
+    <li class="navbar"><a href="{% url 'zhiyuan:feedback' %}">建议反馈</a></li>
+    {#  登录按钮在已登录状态下显示退出登录  #}
+    {% if user.is_authenticated %}
+        <li class="navbar"><a href="{% url 'logout' %}">退出登录</a></li>
+    {% else %}
+        <div class="dropdown">
+            <a href="#" class="dropbtn">登录</a>
+        <div class="dropdown_content">
+            <a href="{% url 'login' %}">用户登录</a>
+            <a href="/admin">管理员登录</a>
+        </div>
+        </div>
+    {% endif %}
+</ul>
+{# 通过模板标签扩展页面 #}
+{% block content %}{% endblock %}
+
+
+</body>
+</html>

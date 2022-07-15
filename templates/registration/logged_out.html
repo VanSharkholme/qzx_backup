@@ -1,0 +1,9 @@
+{% extends 'nav_bar.html' %}
+
+{% block content %}
+    <p>已退出</p>
+    {# 退出后重定向到登录页面 #}
+    <script>
+        window.location.href='../login';
+    </script>
+{% endblock %}

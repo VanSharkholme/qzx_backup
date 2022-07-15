@@ -1,0 +1,31 @@
+{% extends "nav_bar.html" %}
+{% block content %}
+
+<div class="out">
+<div class="time">
+<h1 class="time">部门信息</h1>
+<table class="mid" id="time">
+    <thead>
+        <th>负责人单位</th>
+        <th>负责人姓名</th>
+        <th>负责人手机号</th>
+        <th>负责人QQ</th>
+    </thead>
+    <tbody>
+    {% for obj in dirt %}
+    <tr>
+        <td>{{ obj.department }}</td>
+        <td>{{ obj.organizer }}</td>
+        <td>{{ obj.organizer_phone }}</td>
+        <td>{{ obj.organizer_qq}}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td style="border: none" colspan="4"><a href="{% url 'zhiyuan:time' %}" class="mid"><button>返回</button></a></td>
+    </tr>
+    </tbody>
+
+</table>
+</div>
+</div>
+{% endblock %}

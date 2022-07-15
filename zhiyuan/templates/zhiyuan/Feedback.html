@@ -1,0 +1,19 @@
+{% extends 'nav_bar.html' %}
+
+{% block content %}
+    <h1 style="font-size:200%;color: white;text-align: center">建议反馈</h1>
+    <form align="center" action="feedback" method="POST" id="feedback" name="feedback">
+        {% csrf_token %}
+        <div>
+            <textarea placeholder="请输入您的宝贵意见..." form="feedback" name="feedback"></textarea>
+        </div>
+        <input type="submit" value="提交" class="submit" style="text-align: center">
+        <div style="color: #f2f2f2; font-size: 300%">
+            {{ message }}
+        </div>
+
+    </form>
+    <div>
+
+    </div>
+{% endblock %}

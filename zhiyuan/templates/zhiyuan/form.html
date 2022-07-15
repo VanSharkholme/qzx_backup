@@ -1,0 +1,9 @@
+{% extends 'nav_bar.html' %}
+{% block content %}
+    <form enctype="multipart/form-data" action="form" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="提交" class="submit">
+
+    </form>
+{% endblock %}

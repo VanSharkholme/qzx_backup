@@ -1,0 +1,219 @@
+body{
+    background-color: #1b1b1b;
+    font-family: Arial, sans-serif, Tahoma;
+}
+/*导航栏css*/
+ul.navbar{
+    background-color: #525252;
+	list-style-type: none;
+    margin: 0;
+	padding: 0;
+	overflow: hidden;
+	border-radius: 20px;
+}
+
+li.navbar{
+	float: left
+}
+li.navbar a,.dropbtn{
+	display: inline-block;
+	color: white;
+	text-align: center;
+	padding: 14px 50px;
+	text-decoration: none;
+}
+li.navbar a:hover ,.dropdown:hover, .dropbtn:hover{
+	background-color: #151515;
+}
+
+label{
+    color: white;
+    font-size: 150%;
+}
+h1.login{
+	text-align: center;
+	font-size:400%;
+	color: #f2f2f2
+}
+.out{
+	text-align: center;
+}
+.mid{
+	display: inline-block;
+}
+/*下拉菜单部分*/
+.dropdown{
+	display: inline-block;
+}
+
+.dropdown_content{
+	display: none;
+	position: absolute;
+	background-color: #151515;
+	min-width: 132px;
+	box-shadow: 0 12px 8px -7px rgba(0,0,0,0.3);
+	border-radius: 5px;
+}
+
+.dropdown_content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.dropdown_content a:hover {
+	color: #151515;
+	background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown_content{
+	display: block;
+}
+
+
+
+/*登录按钮*/
+input{
+	padding: 10px;
+	margin: 5px;
+	border: solid 3px #FFFFFF;
+	border-radius: 100px;
+	font-size: 120%;
+	background: none;
+	color: white;
+
+}
+input.submit:hover{
+	background-color: aliceblue;
+	color: #1b1b1b;
+	box-shadow: 0 0 20px white;
+}
+/*按钮*/
+button{
+	padding: 10px;
+	margin: 5px;
+	border: solid 3px #FFFFFF;
+	border-radius: 100px;
+	font-size: 120%;
+	background: none;
+	color: white;
+
+}
+button:hover{
+	background-color: aliceblue;
+	color: #1b1b1b;
+	box-shadow: 0 0 20px white;
+}
+
+
+
+.error{
+	color: red;
+	text-align: center;
+}
+/*时长页面所需css*/
+h1.time,h2.time,th,td{
+	color: white;
+}
+/*表格部分*/
+div.time table.mid{
+	height: 500px;
+	overflow: auto;
+}
+div.time th{
+	position: sticky;
+	top: 0;
+	width: 200px;
+	height: 60px;
+	background-color: #7b7b7b;
+	border: 3px solid #f2f2f2;
+}
+
+div.time td{
+	height: 40px;
+	border-collapse: collapse;
+}
+div.time th,div.time td{
+	text-align: center;
+	border: 2px solid #f2f2f2;
+}
+div.time tr.row2{
+	background-color: #303030;
+}
+
+.center{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.tcenter{
+	text-align: center;
+}
+
+ul.errorlist{
+	color: white;
+}
+
+.center span{
+	display: inline-block;
+	width: 200px;
+	text-align: right;
+}
+
+textarea{
+	height:300px;
+	width:1000px;
+	font-size:18px;
+	word-break:break-all;
+}
+
+a.dai{
+	color: white;
+}
+
+a.dai:hover{
+	text-decoration: none;
+}
+
+
+/*排序按钮*/
+.click {
+        width: 50px;
+        height: 40px;
+        display: inline-block;
+    }
+
+    .top {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 6px 7px;
+        border-color: transparent transparent #999999;
+        position: absolute;
+        transform: rotate(180deg);
+        bottom: 14px;
+        right: 17px;
+    }
+    .top:hover {
+        cursor: pointer;
+        border-color: transparent transparent #333333;
+    }
+
+    .bottom {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 6px 7px;
+        border-color: transparent transparent #999999;
+        position: absolute;
+        top: 10px;
+        right: 17px;
+    }
+    .bottom:hover {
+        cursor: pointer;
+        border-color: transparent transparent #333333;
+    }
