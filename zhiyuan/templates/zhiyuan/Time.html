@@ -2,32 +2,37 @@
 {% block content %}
     <div class="out">
         <div class="time">
-        <table class="mid" id="time">
-            <h1 class="time">{{ username }}同学，您当前总志愿时长为：{{ totaltime }}小时</h1>
-            <h2 class="time">志愿时长记录 <small>共计{{ record_num }}条</small></h2>
-            <thead>
-            <tr class="th">
-                <th>活动举办方</th>
-                <th>活动</th>
-                <th>志愿时长
-                    {# 排序按钮 #}
-                    <span class="top" onclick="sortTable1()"></span>
-                    <span class="bottom" onclick="sortTable2()"></span>
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            {# 循环罗列出所有志愿项目 #}
-            {% for item in vol_pks %}
-                {# 每一行循环使用不同背景色 #}
-                <tr class={% cycle 'row1' 'row2' %}>
-                    <td><a href="{% url 'zhiyuan:department' %}?id={{ item.org.department }}" class="dai">{{ item.org.department }}</a></td>
-                    <td>{{ item.proj_name }}</td>
-                    <td>{{ item.proj_time }}</td>
+            <table class="mid" id="time">
+                <h1 class="time">{{ username }}同学，您当前总志愿时长为：{{ totaltime }}小时</h1>
+                <h2 class="time">志愿时长记录 <small>共计{{ record_num }}条</small></h2>
+                <thead>
+                <tr class="th">
+                    <th>活动举办方</th>
+                    <th>活动</th>
+                    <th>志愿时长
+                        {# 排序按钮 #}
+                        <span class="top" onclick="sortTable1()"></span>
+                        <span class="bottom" onclick="sortTable2()"></span>
+                    </th>
+                    <th>开始时间</th>
+                    <th>结束时间</th>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {# 循环罗列出所有志愿项目 #}
+                {% for item in vol_pks %}
+                    {# 每一行循环使用不同背景色 #}
+                    <tr class={% cycle 'row1' 'row2' %}>
+                        <td><a href="{% url 'zhiyuan:department' %}?id={{ item.org.department }}"
+                               class="dai">{{ item.org.department }}</a></td>
+                        <td>{{ item.proj_name }}</td>
+                        <td>{{ item.proj_time }}</td>
+                        <td>{{ item.commence_date }}</td>
+                        <td>{{ item.end_date }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -45,8 +50,8 @@
                     x = rows[i].getElementsByTagName("TD")[2];
                     y = rows[i + 1].getElementsByTagName("TD")[2];
                     if (Number(x.innerHTML) > Number(y.innerHTML)) {
-                            shouldSwitch = true;
-                            break;
+                        shouldSwitch = true;
+                        break;
                     }
                 }
                 if (shouldSwitch) {
@@ -55,6 +60,7 @@
                 }
             }
         }
+
         function sortTable2() {
             var table, rows, switching, i, x, y, shouldSwitch;
             table = document.getElementById("time");
@@ -67,8 +73,8 @@
                     x = rows[i].getElementsByTagName("TD")[2];
                     y = rows[i + 1].getElementsByTagName("TD")[2];
                     if (Number(x.innerHTML) < Number(y.innerHTML)) {
-                            shouldSwitch = true;
-                            break;
+                        shouldSwitch = true;
+                        break;
                     }
                 }
                 if (shouldSwitch) {

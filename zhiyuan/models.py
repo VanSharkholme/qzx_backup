@@ -56,6 +56,12 @@ class StudentUser(AbstractBaseUser):
         verbose_name="姓名",
     )
 
+    stu_academy = models.CharField(
+        max_length=50,
+        verbose_name="学院",
+        blank=True
+    )
+
     stu_class = models.CharField(
         max_length=20,
         verbose_name="班级",

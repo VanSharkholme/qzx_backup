@@ -1,8 +1,9 @@
 import csv
+import re
+import datetime
 import pandas as pd
-
+import zhiyuan
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from .forms import UserImportForm
@@ -33,9 +34,9 @@ def feedback(request):
     writer.writerow(li)
     f.close()
     # print(msg)
-    message = '提交成功'
-    context = {'message': message}
-    return render(request, 'zhiyuan/Feedback.html', context)
+    # message = '提交成功'
+    # context = {'message': message}
+    return render(request, 'zhiyuan/Feedback.html')
 
 
 # 只有在登录状态下才能访问志愿时长
@@ -50,9 +51,7 @@ def time(request):
     # 在志愿项目模型中查找多对多键(学号)为当前用户学号的信息并放入list
     vol_pks = list(Vol_Proj.objects.filter(STU__stu_id=u.stu_id))
     # 计算总时长
-    totaltime = 0
-    for item in vol_pks:
-        totaltime += item.proj_time
+    totaltime = u.stu_time
     # 将需要传至网页的内容放入context字典以通过render函数传递
     context = {
         'username': u.stu_name,
@@ -69,21 +68,4 @@ def department(request):
     dirt = Organize.objects.filter(department=id)
     return render(request, 'zhiyuan/department.html', {"dirt": dirt})
 
-
 # 批量导入用户
-
-
-def user_import(request):
-    if request.method == 'POST':
-        form = UserImportForm(request.POST)
-        xlsx = pd.read_excel(request.FILES['xlsx'], skiprows=1)
-        data = []
-        for i in xlsx.index:
-            data.append(list(xlsx.iloc[i]))
-            for j in range(1, len(data[i])):
-                print(data[i][j])
-            print('==========line%d==========' % i)
-        print("=========all done!!!!=========")
-    else:
-        form = UserImportForm()
-    return render(request, 'zhiyuan/form.html', {'form': form})
